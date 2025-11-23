@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f200d38db21fe144a824ce8ac18cec50, type: 3}
+  m_Name: New Chat Config
+  m_EditorClassIdentifier: 
+  chatCharacters:
+  - id: 1
+    sp: {fileID: 21300000, guid: 397edd4c88e56c74685a8b20b55e5b73, type: 3}
+    isRightSide: 0
+  - id: 11
+    sp: {fileID: 21300000, guid: 00ecc91ae2eb43b40a62d8c3bde59cf8, type: 3}
+    isRightSide: 1
+  - id: 12
+    sp: {fileID: 21300000, guid: b723e6558c058524c89f82b5b961c035, type: 3}
+    isRightSide: 1
+  - id: 17
+    sp: {fileID: 21300000, guid: 912c2c2e22b88054da794a6c5452d1bd, type: 3}
+    isRightSide: 1
+  - id: 19
+    sp: {fileID: 21300000, guid: 51f00e4def8093e4d89c391336577909, type: 3}
+    isRightSide: 1
+  - id: 21
+    sp: {fileID: 21300000, guid: 715f22ee74dee194f9135e55653a148c, type: 3}
+    isRightSide: 1
+  - id: 22
+    sp: {fileID: 21300000, guid: 6da38087a9e186b408e388a33b49ce8b, type: 3}
+    isRightSide: 1
+  - id: 23
+    sp: {fileID: 21300000, guid: 372664e9a159c3047a27c0916a694676, type: 3}
+    isRightSide: 1
+  - id: 30
+    sp: {fileID: 21300000, guid: 9ac42cf278b881f41862e7da23d0a7ea, type: 3}
+    isRightSide: 1
+  - id: 31
+    sp: {fileID: 21300000, guid: 0c9138f94d4498a4e8a0989a7c2b6329, type: 3}
+    isRightSide: 1

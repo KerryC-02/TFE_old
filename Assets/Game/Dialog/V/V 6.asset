@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24315b068eff2748b9790e75e774f6e, type: 3}
+  m_Name: V 6
+  m_EditorClassIdentifier: 
+  people: 23
+  content: 'First-class citizen? What did she do? '
+  soundName: UI_Button_Hover
+  chatSpecialAction: 0
+  next: {fileID: 0}
+  flag: 
+  options:
+  - txt: She's been missing for several days.
+    next: {fileID: 11400000, guid: f9e63ce28f5011748b28800bd193e1b2, type: 2}
+  - txt: 'It''s no big deal, just her father asking to find her. '
+    next: {fileID: 11400000, guid: f9e63ce28f5011748b28800bd193e1b2, type: 2}
+  - txt: Can't say, have to keep it confidential for my client.
+    next: {fileID: 11400000, guid: f9e63ce28f5011748b28800bd193e1b2, type: 2}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24315b068eff2748b9790e75e774f6e, type: 3}
+  m_Name: V 22
+  m_EditorClassIdentifier: 
+  people: 23
+  content: Everyone secretly guesses she used to be a big boss behind the Ghost Claw
+    gang, how did she end up running for mayor? Her embroidered steel arm is much
+    more expensive than these junk we use! This woman is willing to speak for us,
+    just a bit too affectionate. It's good to raise the hourly wage, but giving civil
+    rights to bioroids is another story! So many iron cans retired from the front,
+    you can't tell them apart in a crowd.
+  soundName: UI_Button_Hover
+  chatSpecialAction: 0
+  next: {fileID: 11400000, guid: cfdee4a7d827bf34da7fbe836b342b98, type: 2}
+  flag: 
+  options: []

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24315b068eff2748b9790e75e774f6e, type: 3}
+  m_Name: ToL3Bridge
+  m_EditorClassIdentifier: 
+  people: 0
+  content: Leave 7 District Street?
+  soundName: UI_Button_Hover
+  chatSpecialAction: 0
+  next: {fileID: 0}
+  flag: 
+  options:
+  - txt: Yes
+    next: {fileID: 11400000, guid: e75b0e7de25993a4f9c26f24c9f5a5f7, type: 2}
+  - txt: No
+    next: {fileID: 11400000, guid: c3dd53588fb933747b6d38db02680eaf, type: 2}

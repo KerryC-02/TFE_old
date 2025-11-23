@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: PlanarReflections4_PBR
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18900\n2116;120;1718;925;2918.736;1335.961;2.075073;True;False\nNode;AmplifyShaderEditor.RangedFloatNode;35;-1532.955,-2.081482;Inherit;False;Constant;_Float1;Float
+    1;6;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;42;-653.3661,-368.1492;Inherit;False;half4
+    reflectionColor = half4(0,0,0,0)@$$\thalf texLOD = lerp(4,0, saturate( smoothness
+    + depth * 0.5 ) )@$$maxBlur = lerp(0, maxBlur, 1 - depth * 0.25 )@$$\tuint samples
+    = max(texLOD*32,1)@$\tuint sLOD = 1 << (uint)texLOD@$\tfloat sigma = float(samples)*0.25@$$\tuint
+    s = samples /sLOD@$$\treflectionUVs +=  + normal * reflectionDistortion@$$\tfor
+    (uint i = 0@ i < s*s@ i++){$\t\tfloat2 d = float2(i%s,i/s)*float(sLOD)-float(samples)/2.0@$\t\tfloat2
+    uvs = reflectionUVs+reflectionTexels.xy*d@$half4 reflectionFog = tex2Dlod(fog,
+    half4(uvs, 0, texLOD))@$\t\treflectionColor += exp(-0.5*dot(d/=sigma,d))/(6.28*sigma*sigma)
+    * lerp(tex2Dlod(_ReflectionTex, half4(uvs, 0, texLOD)), half4(reflectionFog.rgb,
+    1), reflectionFog.a)@$\t}$$\treflectionColor.a = max(reflectionColor.a,0.000001)@$$\treflectionColor
+    /= reflectionColor.a@$$\treflectionColor.rgb = lerp( reflectionColor.rgb * _ReflectionTint.rgb,
+    reflectionColor.rgb * _ReflectionTint.rgb * albedo.rgb, _AlbedoReflectionTint
+    * length( albedo.rgb ) )@$$\treflectionColor.rgb *= max( smoothness, 0.02 )@$$\thalf
+    fresnelValue = saturate( dot(normal, viewDir) )@ $$\treflectionColor *= lerp(
+    0.5, 1, 1 - fresnelValue )@$$\treturn reflectionColor.rgb@;3;False;13;True;albedo;FLOAT4;0,0,0,0;In;;Inherit;False;True;_ReflectionTex;SAMPLER2D;;In;;Inherit;False;True;_ReflectionTint;FLOAT4;0,0,0,0;In;;Inherit;False;True;reflectionUVs;FLOAT2;0,0;In;;Inherit;False;True;reflectionTexels;FLOAT2;0,0;In;;Inherit;False;True;_AlbedoReflectionTint;FLOAT;0;In;;Inherit;False;True;reflectionDistortion;FLOAT;0;In;;Inherit;False;True;smoothness;FLOAT;0;In;;Inherit;False;True;normal;FLOAT3;0,0,0;In;;Inherit;False;True;viewDir;FLOAT3;0,0,0;In;;Inherit;False;True;maxBlur;FLOAT;0;In;;Inherit;False;True;depth;FLOAT;0;In;;Inherit;False;True;fog;SAMPLER2D;;In;;Inherit;False;FastPBRBlurRefFog;True;False;0;13;0;FLOAT4;0,0,0,0;False;1;SAMPLER2D;;False;2;FLOAT4;0,0,0,0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT3;0,0,0;False;9;FLOAT3;0,0,0;False;10;FLOAT;0;False;11;FLOAT;0;False;12;SAMPLER2D;;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.TexelSizeNode;18;-1204.648,-392.6148;Inherit;False;-1;1;0;SAMPLER2D;;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.StaticSwitch;34;-1302.879,-12.60507;Inherit;False;Property;_UseReflectionDepth;Use
+    Reflection Depth;4;0;Create;True;0;0;0;False;0;False;0;0;0;True;;Toggle;2;Key0;Key1;Create;True;True;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;33;-1600.474,109.8981;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;36;-2753.65,-113.3085;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;23;-1053.159,-734.264;Inherit;False;Smoothness;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SamplerNode;4;-2053.356,213.9987;Inherit;True;Property;_ReflectionDepth;ReflectionDepth;1;2;[HideInInspector];[PerRendererData];Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.ScreenPosInputsNode;1;-3027.224,-73.49068;Inherit;False;1;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.DynamicAppendNode;3;-2159.971,-39.55434;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.OneMinusNode;2;-2459.986,-38.92167;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.LerpOp;31;-1396.62,-731.5344;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ColorNode;15;-1092.34,-1170.156;Inherit;False;Property;_ReflectionTint;Reflection
+    Tint;2;0;Create;True;0;0;0;True;3;Space(10);Header(Reflection Settings);Space(10);False;1,1,1,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.TexturePropertyNode;43;-997.1359,76.20856;Inherit;True;Property;_ReflectionFog;_ReflectionFog;0;2;[HideInInspector];[PerRendererData];Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1\nNode;AmplifyShaderEditor.SimpleDivideOpNode;37;-2753.65,97.6915;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.DynamicAppendNode;20;-999.6895,-368.8453;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;26;-1711.56,-494.0585;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;24;-1714.02,-979.6892;Inherit;False;Albedo;5;2;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0\nNode;AmplifyShaderEditor.ViewDirInputsCoordNode;13;-1052.33,-653.8049;Inherit;False;World;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.RangedFloatNode;17;-1156.505,-973.2853;Inherit;False;Property;_AlbedoReflectionTint;Albedo
+    Based Tint;5;0;Create;False;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;28;-1155.553,-900.2101;Inherit;False;Property;_RefDistortion;Reflection
+    Distortion;3;0;Create;False;0;0;0;False;0;False;0.02;0;0;1;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;25;-1547.219,-834.4036;Inherit;False;Constant;_Float0;Float
+    0;4;0;Create;True;0;0;0;False;0;False;32;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;12;-666.4388,-750.2358;Inherit;False;half4
+    reflectionColor = half4(0,0,0,0)@$$\thalf texLOD = lerp(4,0, saturate( smoothness
+    + depth * 0.5 ) )@$$maxBlur = lerp(0, maxBlur, 1 - depth * 0.25 )@$$\tuint samples
+    = max(texLOD*32,1)@$\tuint sLOD = 1 << (uint)texLOD@$\tfloat sigma = float(samples)*0.25@$$\tuint
+    s = samples /sLOD@$$\treflectionUVs +=  + normal * reflectionDistortion@$$\tfor
+    (uint i = 0@ i < s*s@ i++){$\t\tfloat2 d = float2(i%s,i/s)*float(sLOD)-float(samples)/2.0@$\t\tfloat2
+    uvs = reflectionUVs+reflectionTexels.xy*d@$\t\treflectionColor += exp(-0.5*dot(d/=sigma,d))/(6.28*sigma*sigma)
+    * tex2Dlod( _ReflectionTex, half4(uvs, 0, texLOD) )@$\t}$$\treflectionColor.a
+    = max(reflectionColor.a,0.000001)@$$\treflectionColor /= reflectionColor.a@$$\treflectionColor.rgb
+    = lerp( reflectionColor.rgb * _ReflectionTint.rgb, reflectionColor.rgb * _ReflectionTint.rgb
+    * albedo.rgb, _AlbedoReflectionTint * length( albedo.rgb ) )@$$\treflectionColor.rgb
+    *= max( smoothness, 0.02 )@$$\thalf fresnelValue = saturate( dot(normal, viewDir)
+    )@ $$\treflectionColor *= lerp( 0.5, 1, 1 - fresnelValue )@$$\treturn reflectionColor.rgb@;3;False;12;True;albedo;FLOAT4;0,0,0,0;In;;Inherit;False;True;_ReflectionTex;SAMPLER2D;;In;;Inherit;False;True;_ReflectionTint;FLOAT4;0,0,0,0;In;;Inherit;False;True;reflectionUVs;FLOAT2;0,0;In;;Inherit;False;True;reflectionTexels;FLOAT2;0,0;In;;Inherit;False;True;_AlbedoReflectionTint;FLOAT;0;In;;Inherit;False;True;reflectionDistortion;FLOAT;0;In;;Inherit;False;True;smoothness;FLOAT;0;In;;Inherit;False;True;normal;FLOAT3;0,0,0;In;;Inherit;False;True;viewDir;FLOAT3;0,0,0;In;;Inherit;False;True;maxBlur;FLOAT;0;In;;Inherit;False;True;depth;FLOAT;0;In;;Inherit;False;FastPBRBlurRef;True;False;0;12;0;FLOAT4;0,0,0,0;False;1;SAMPLER2D;;False;2;FLOAT4;0,0,0,0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT3;0,0,0;False;9;FLOAT3;0,0,0;False;10;FLOAT;0;False;11;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.TexturePropertyNode;30;-1104.328,-1383.978;Inherit;True;Property;_ReflectionTex;_ReflectionTex;0;2;[HideInInspector];[PerRendererData];Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;32;-1736.053,49.88548;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;4;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ToggleSwitchNode;41;-126.423,-859.1121;Inherit;False;Property;_USE_FOG;_USE_FOG;7;0;Create;True;0;0;0;False;1;HideInInspector;False;0;True;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;10;245.6217,-745.8406;Inherit;False;True;-1;Reflection
+    Color;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;11;132.8012,112.0356;Inherit;False;False;-1;Reflection
+    Depth;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;42;0;24;0\nWireConnection;42;1;30;0\nWireConnection;42;2;15;0\nWireConnection;42;3;3;0\nWireConnection;42;4;20;0\nWireConnection;42;5;17;0\nWireConnection;42;6;28;0\nWireConnection;42;7;23;0\nWireConnection;42;8;26;0\nWireConnection;42;9;13;0\nWireConnection;42;10;31;0\nWireConnection;42;11;34;0\nWireConnection;42;12;43;0\nWireConnection;18;0;30;0\nWireConnection;34;1;35;0\nWireConnection;34;0;33;0\nWireConnection;33;0;4;1\nWireConnection;33;1;32;0\nWireConnection;36;0;1;1\nWireConnection;36;1;1;4\nWireConnection;4;1;3;0\nWireConnection;3;0;2;0\nWireConnection;3;1;37;0\nWireConnection;2;0;36;0\nWireConnection;31;0;25;0\nWireConnection;37;0;1;2\nWireConnection;37;1;1;4\nWireConnection;20;0;18;1\nWireConnection;20;1;18;2\nWireConnection;12;0;24;0\nWireConnection;12;1;30;0\nWireConnection;12;2;15;0\nWireConnection;12;3;3;0\nWireConnection;12;4;20;0\nWireConnection;12;5;17;0\nWireConnection;12;6;28;0\nWireConnection;12;7;23;0\nWireConnection;12;8;26;0\nWireConnection;12;9;13;0\nWireConnection;12;10;31;0\nWireConnection;12;11;34;0\nWireConnection;32;0;1;4\nWireConnection;41;0;12;0\nWireConnection;41;1;42;0\nWireConnection;10;0;41;0\nWireConnection;11;0;33;0\nASEEND*/\n//CHKSM=249800CCA88F429F00FA54E6F91920F571A0C02A"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24315b068eff2748b9790e75e774f6e, type: 3}
+  m_Name: NatashaPart2 4
+  m_EditorClassIdentifier: 
+  people: 22
+  content: Bro, keep it down, How much you want?
+  soundName: UI_Button_Hover
+  chatSpecialAction: 0
+  next: {fileID: 11400000, guid: 9c826af925e3c4048a45e457401073f0, type: 2}
+  flag: 
+  options:
+  - txt: 'How much do you have? '
+    next: {fileID: 11400000, guid: c701525f22e7a6040a81e544ee1cbf3a, type: 2}

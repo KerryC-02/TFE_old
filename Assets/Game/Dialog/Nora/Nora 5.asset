@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24315b068eff2748b9790e75e774f6e, type: 3}
+  m_Name: Nora 5
+  m_EditorClassIdentifier: 
+  people: 21
+  content: 'Coincidentally, I''m also owed money by her, and so is Emmy, good luck
+    getting your money back. '
+  soundName: UI_Button_Hover
+  chatSpecialAction: 0
+  next: {fileID: 0}
+  flag: 
+  options:
+  - txt: As long as I can find her, I can get the money back. Have you seen her recently?
+    next: {fileID: 11400000, guid: e3ecb0b324c1d784185adf9ffbf7ab2a, type: 2}
+  - txt: When was the last time you saw her?
+    next: {fileID: 11400000, guid: e3ecb0b324c1d784185adf9ffbf7ab2a, type: 2}
